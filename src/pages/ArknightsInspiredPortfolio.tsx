@@ -2,6 +2,7 @@
 
 import ProjectDossierModal from "../components/modals/ProjectDossierModal";
 import ImagePreviewModal from "../components/modals/ImagePreviewModal";
+import BookmarksSidebar from "../components/sidebars/BookmarksSidebar";
 import Footer from "../components/sections/Footer";
 import HeaderTopBar from "../components/sections/HeaderTopBar";
 import { NAV_ITEMS, SECTION_REGISTRY, type SectionRegistryContext } from "../components/sections";
@@ -14,6 +15,7 @@ import { PROJECTS, PROJECT_TYPES, type Project } from "../data/projects";
 import { RESOURCES } from "../data/resources";
 import { siteConfig } from "../config/siteConfig";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { useRafPointerTilt } from "../hooks/useRafPointerTilt";
 import { useTheme } from "../hooks/useTheme";
 import LocalStyles from "../styles/localStyles";
@@ -27,6 +29,13 @@ export default function ArknightsInspiredPortfolio() {
   const [activeYear, setActiveYear] = useState("ALL");
   const [activeDepotType, setActiveDepotType] = useState("ALL");
   const [activeDepotTag, setActiveDepotTag] = useState("ALL");
+  const [bookmarksOpen, setBookmarksOpen] = useLocalStorageState<boolean>(
+    "ark.portal.bookmarks.sidebarOpen.v1",
+    () => {
+      if (typeof window === "undefined") return true;
+      return window.matchMedia?.("(min-width: 768px)")?.matches ?? true;
+    }
+  );
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeImage, setActiveImage] = useState<CollectedImage | null>(null);
   const [copiedLineId, setCopiedLineId] = useState<string | null>(null);
@@ -208,7 +217,7 @@ export default function ArknightsInspiredPortfolio() {
   };
 
   return (
-    <div className="app-root min-h-screen bg-[#070a0e] text-white">
+    <div className={`app-root min-h-screen bg-[#070a0e] text-white ${bookmarksOpen ? "sidebar-open" : ""}`}>
       <LocalStyles />
 
       <div className="bg-grid fixed inset-0 pointer-events-none" />
@@ -224,19 +233,25 @@ export default function ArknightsInspiredPortfolio() {
         onScrollTo={scrollToId}
         isLight={isLight}
         onToggleTheme={toggleTheme}
+        bookmarksOpen={bookmarksOpen}
+        onToggleBookmarks={() => setBookmarksOpen((s) => !s)}
         githubUrl={siteConfig.links.github}
         linkedinUrl={siteConfig.links.linkedin}
         email={siteConfig.email}
       />
 
-      <main className="relative max-w-6xl mx-auto px-4 md:px-6">
-        {SECTION_REGISTRY.map((section) => (
-          <div key={section.id}>
-            {section.render(sectionContext)}
-            {section.withDivider ? <DividerLine /> : null}
-          </div>
-        ))}
-      </main>
+      <BookmarksSidebar open={bookmarksOpen} onOpenChange={setBookmarksOpen} />
+
+      <div className="content-rail">
+        <main className="relative max-w-6xl mx-auto px-4 md:px-6">
+          {SECTION_REGISTRY.map((section) => (
+            <div key={section.id}>
+              {section.render(sectionContext)}
+              {section.withDivider ? <DividerLine /> : null}
+            </div>
+          ))}
+        </main>
+      </div>
 
       <Footer brandName={siteConfig.brandName} />
 

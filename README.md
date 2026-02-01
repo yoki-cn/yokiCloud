@@ -1,4 +1,15 @@
-﻿# Arknights Inspired Portfolio (React + TypeScript)
+# yokiCloud · 个人网站导航页（React + TypeScript）
+
+这是一个带有 PRTS/明日方舟终端风格的个人网站入口页：把常用链接、内容分区与外部站点入口集中到一个页面里，作为日常使用的“起始页 / 导航页”（不是电子简历）。
+
+- 在线访问（GitHub Pages）：https://yoki-cn.github.io/yokiCloud/
+- 技术栈：React + TypeScript + Vite + Tailwind CSS + Framer Motion
+
+## 页面包含什么
+
+- Portal：主入口/快捷分流
+- Bookmarks Sidebar：侧边书签栏（只读展示）
+- Projects / Resources / Blog / Friends / About：按 Section 组织的内容区
 
 ## 开发
 
@@ -14,28 +25,15 @@ npm run build
 npm run preview
 ```
 
-## 部署（静态站点）
-
-构建后产物在 `dist/`，直接部署到任意静态服务器即可。Nginx 示例：
-
-```nginx
-server {
-  listen 80;
-  server_name your-domain.com;
-  root /var/www/arknights-portfolio/dist;
-
-  location / {
-    try_files $uri $uri/ /index.html;
-  }
-}
-```
-
-## 配置入口
+## 配置与内容维护
 
 - 统一配置：`src/config/siteConfig.ts`
   - `brandName` / `displayName`
   - `email` / `links`
   - `externalRoutes` (EXT-01/02/03)
+- 书签侧栏：`src/data/bookmarks.ts`
+  - 修改后重新构建/部署即可生效
+  - 可选自定义 icon：把文件放到上级目录的 `logo/`（与本仓库同级），`dev/build` 会自动同步到 `public/logo`
 
 ## 结构说明
 
@@ -46,8 +44,6 @@ server {
 - 数据层：`src/data/*`
 - 本地样式（原 LocalStyles）：`src/styles/localStyles.tsx`
 
-## 保持一致的关键点
+## UI 风格说明
 
-- 原 LocalStyles 的选择器与 CSS 规则保持不变。
-- section id（portal/projects/resources/blog/friends/about）完全保留。
-- prefers-reduced-motion 与 modal 行为（遮罩关闭、body 锁滚动）保持一致。
+- `UI_STYLE_GUIDE.md`

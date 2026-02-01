@@ -882,6 +882,197 @@
           inset 0 0 0 1px rgba(245,213,150,0.22);
       }
 
+      /* Sidebar layout */
+      .app-root {
+        --sidebar-w: clamp(220px, 22vw, 340px);
+        --sidebar-offset: 16px;
+        --sidebar-gap: 16px;
+      }
+
+      .content-rail {
+        transition: padding-left 220ms ease;
+        will-change: padding-left;
+      }
+
+      @media (min-width: 768px) {
+        .app-root.sidebar-open .content-rail {
+          padding-left: calc(var(--sidebar-offset) + var(--sidebar-w) + var(--sidebar-gap));
+        }
+      }
+
+      /* Bookmarks sidebar (dark / light) */
+      .app-root .bookmarks-panel {
+        box-shadow:
+          0 18px 42px rgba(0,0,0,0.58),
+          inset 0 0 0 1px rgba(255,255,255,0.02);
+      }
+
+      .app-root .sidebar-block-head {
+        padding: 8px 8px;
+        border-radius: 12px;
+        background: transparent;
+        transition: background 160ms ease, transform 160ms ease;
+        will-change: background;
+      }
+
+      .app-root .sidebar-block-head:hover {
+        background: rgba(255,255,255,0.06);
+      }
+
+      .app-root .sidebar-block-head:active {
+        transform: translateY(0.5px);
+      }
+
+      .app-root .sidebar-block-head:focus-visible {
+        outline: 2px solid rgba(88,199,255,0.45);
+        outline-offset: 2px;
+      }
+
+      .app-root .sidebar-item-card {
+        transition: transform 140ms ease, background 160ms ease, filter 220ms ease, border-color 160ms ease;
+        will-change: transform;
+      }
+
+      .app-root .sidebar-item-card:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.075);
+        border-color: rgba(255,255,255,0.18);
+        filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
+      }
+
+      [data-theme="light"] .app-root .sidebar-item-card:hover {
+        background: rgba(245,235,218,0.92);
+        border-color: rgba(180,160,130,0.72);
+        filter: drop-shadow(0 16px 30px rgba(180,160,130,0.12));
+      }
+
+      [data-theme="light"] .app-root .sidebar-block-head:hover {
+        background: rgba(148,163,184,0.16);
+      }
+
+      [data-theme="light"] .app-root .sidebar-block-head:focus-visible {
+        outline-color: rgba(245,213,150,0.85);
+      }
+
+      .app-root .bookmarks-panel::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        bottom: 10px;
+        right: -10px;
+        width: 10px;
+        pointer-events: none;
+        opacity: 0.35;
+        background: linear-gradient(
+          to right,
+          rgba(255,255,255,0),
+          rgba(88,199,255,0.20),
+          rgba(255,255,255,0)
+        );
+      }
+
+      [data-theme="light"] .app-root .bookmarks-panel::after {
+        opacity: 0.55;
+        background: linear-gradient(
+          to right,
+          rgba(0,0,0,0),
+          rgba(245,213,150,0.55),
+          rgba(0,0,0,0)
+        );
+      }
+
+      .app-root .bm-scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .app-root .bm-scroll::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      .app-root .bm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 10px;
+        list-style: none;
+        margin: 0;
+        padding: 2px;
+      }
+
+      .app-root .bm-tile-shell { position: relative; }
+
+      .app-root .bm-tile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 6px;
+        border-radius: 12px;
+        border: none;
+        background: rgba(255,255,255,0.035);
+        text-decoration: none;
+        transition: transform 140ms ease, background 160ms ease, filter 220ms ease;
+        will-change: transform;
+      }
+      .app-root .bm-tile:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.075);
+        filter: drop-shadow(0 10px 22px rgba(0,0,0,0.35));
+      }
+
+      .app-root .bm-tile:focus-visible {
+        outline: 2px solid rgba(88,199,255,0.45);
+        outline-offset: 2px;
+      }
+      [data-theme="light"] .app-root .bm-tile:focus-visible {
+        outline-color: rgba(245,213,150,0.85);
+      }
+
+      .app-root .bm-icon-wrap {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.20);
+        overflow: hidden;
+      }
+
+      .app-root .bm-favicon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        object-fit: contain;
+      }
+
+      .app-root .bm-icon-fallback { color: rgba(255,255,255,0.70); }
+
+      .app-root .bm-label {
+        max-width: 100%;
+        text-align: center;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        color: rgba(255,255,255,0.82);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      [data-theme="light"] .app-root .bm-tile {
+        background: rgba(253,248,238,0.78);
+      }
+      [data-theme="light"] .app-root .bm-tile:hover {
+        background: rgba(245,235,218,0.92);
+        filter: drop-shadow(0 16px 30px rgba(180,160,130,0.12));
+      }
+
+      [data-theme="light"] .app-root .bm-icon-wrap {
+        background: rgba(180,160,130,0.14);
+      }
+      [data-theme="light"] .app-root .bm-icon-fallback { color: #6b7280; }
+      [data-theme="light"] .app-root .bm-label { color: #374151; }
+
       @media (prefers-reduced-motion: reduce) {
         .scanline,
         .soft-pulse,
