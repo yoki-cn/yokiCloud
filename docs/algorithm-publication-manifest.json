@@ -1,0 +1,489 @@
+{
+  "sourceRoot": "G:/Algorithms/Algorithms",
+  "selectionMode": "union",
+  "preserveAllDirectories": true,
+  "directories": [
+    "2. 基础工具与常见技巧",
+    "3. 数据结构",
+    "3. 数据结构/3.1 线性结构、堆与哈希表",
+    "3. 数据结构/3.2 DSU",
+    "3. 数据结构/3.3 BIT",
+    "3. 数据结构/3.4 RMQ、静态区间查询与序列树",
+    "3. 数据结构/3.5 基础 SegTree",
+    "3. 数据结构/3.6 动态、可持久化与可合并线段树",
+    "3. 数据结构/3.7 李超线段树",
+    "3. 数据结构/3.8 平衡树与序列维护",
+    "3. 数据结构/3.9 分块、莫队与离线分治",
+    "3. 数据结构/3.10 其他高级结构",
+    "3. 数据结构/3.11 树套树",
+    "6. 匹配、网络流与图优化模型",
+    "7. 字符串算法",
+    "9. 组合数学、计数与群论",
+    "10. 多项式、卷积与生成函数",
+    "10. 多项式、卷积与生成函数/10.1 卷积与变换基础",
+    "10. 多项式、卷积与生成函数/10.2 多项式基础",
+    "10. 多项式、卷积与生成函数/10.3 形式幂级数",
+    "10. 多项式、卷积与生成函数/10.4 多项式求值与插值",
+    "10. 多项式、卷积与生成函数/10.5 生成函数",
+    "10. 多项式、卷积与生成函数/10.6 线性递推",
+    "10. 多项式、卷积与生成函数/10.7 多项式高级技巧",
+    "11. 线性代数、数值计算与数值类型",
+    "12. 动态规划",
+    "14. 概率与期望",
+    "15. 二维计算几何",
+    "18. 贪心板子",
+    "图片"
+  ],
+  "files": [
+    {
+      "path": "2. 基础工具与常见技巧/2.11 并查集维护后继.md",
+      "status": "draft",
+      "reasons": ["基础工具", "手动新增"]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.1 MInt.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.2 Frac.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.3 组合数及 Lucas.md",
+      "status": "draft",
+      "reasons": [
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.4 高精度.md",
+      "status": "draft",
+      "reasons": [
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.5 FastIO.md",
+      "status": "draft",
+      "reasons": [
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.6 Debug.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.7 常用工具函数.md",
+      "status": "draft",
+      "reasons": [
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.8 Random.md",
+      "status": "draft",
+      "reasons": [
+        "基础工具"
+      ]
+    },
+    {
+      "path": "2. 基础工具与常见技巧/2.9 Matrix.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "基础工具"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.1 线性结构、堆与哈希表/3.1.1 堆.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.1 线性结构、堆与哈希表/3.1.2 链表.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.1 线性结构、堆与哈希表/3.1.3 SWAG.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.1 线性结构、堆与哈希表/3.1.4 HashMap.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.1 一般 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.2 二维与扩展域 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.3 连通块信息 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.4 异或关系与二分图 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.5 带权 DSU（势能并查集）.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.6 可撤销 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.7 可持久化 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.8 线段树分治动态连通性.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.9 可撤销异或关系与二分图 DSU.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.2 DSU/3.2.10 可撤销带权 DSU（势能并查集）.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.3 BIT/3.3.1 一维 BIT.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.3 BIT/3.3.2 二维树状数组.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.3 BIT/3.3.3 离线二维树状数组.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.4 RMQ、静态区间查询与序列树/3.4.1 ST 表与 Arg-ST.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.4 RMQ、静态区间查询与序列树/3.4.2 二维 ST 表与猫树.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.4 RMQ、静态区间查询与序列树/3.4.3 笛卡尔树.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.4 RMQ、静态区间查询与序列树/3.4.4 划分树与小波矩阵.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.4 RMQ、静态区间查询与序列树/3.4.5 状压 RMQ.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.1 SegTree.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.2 非递归线段树（ZKW 风格）.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.3 函数复合线段树.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.4 势能线段树与非线性区间修改.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.5 Segment Tree Beats.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.5 基础 SegTree/3.5.6 按位拆分线段树.md",
+      "status": "draft",
+      "reasons": [
+        "数据结构前五章"
+      ]
+    },
+    {
+      "path": "3. 数据结构/3.10 其他高级结构/3.10.1 选择树（锦标赛树）.md",
+      "status": "usable",
+      "reasons": [
+        "usable"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.1 KMP、Z 与 ExKMP.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.2 字符串哈希.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.3 Trie.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.4 AC 自动机.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.5 子序列自动机.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.6 Manacher.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.7 PAM（回文树）.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.8 Series PAM（回文系列优化）.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.9 后缀数组与后缀结构.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.10 后缀自动机.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.11 循环最小表示与 Lyndon 分解.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.12 Bitset LCS.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "7. 字符串算法/7.13 周期结构、Runs 与 Main–Lorentz.md",
+      "status": "draft",
+      "reasons": [
+        "字符串"
+      ]
+    },
+    {
+      "path": "10. 多项式、卷积与生成函数/10.1 卷积与变换基础/10.1.1 NTT 与普通卷积.md",
+      "status": "draft",
+      "reasons": [
+        "多项式第一章前五篇"
+      ]
+    },
+    {
+      "path": "10. 多项式、卷积与生成函数/10.1 卷积与变换基础/10.1.2 FFT 与整数、实数卷积.md",
+      "status": "draft",
+      "reasons": [
+        "多项式第一章前五篇"
+      ]
+    },
+    {
+      "path": "10. 多项式、卷积与生成函数/10.1 卷积与变换基础/10.1.3 任意模卷积.md",
+      "status": "draft",
+      "reasons": [
+        "多项式第一章前五篇"
+      ]
+    },
+    {
+      "path": "10. 多项式、卷积与生成函数/10.1 卷积与变换基础/10.1.4 FWT 与位运算卷积.md",
+      "status": "draft",
+      "reasons": [
+        "多项式第一章前五篇"
+      ]
+    },
+    {
+      "path": "10. 多项式、卷积与生成函数/10.1 卷积与变换基础/10.1.5 循环与负循环卷积.md",
+      "status": "draft",
+      "reasons": [
+        "多项式第一章前五篇"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.1 点、向量、直线与线段.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.2 多边形、包含与 Minkowski 和.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.3 凸包、切点与旋转卡壳.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.4 半平面交与平面区域.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.5 圆与圆弧.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    },
+    {
+      "path": "15. 二维计算几何/15.6 扫描线、最近点与高级平面结构.md",
+      "status": "usable",
+      "reasons": [
+        "usable",
+        "二维计算几何"
+      ]
+    }
+  ]
+}

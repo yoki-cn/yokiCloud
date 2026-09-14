@@ -1,0 +1,14 @@
+{
+  "sourceDir": "G:\\Algorithms\\Algorithms",
+  "manifest": "docs/algorithm-publication-manifest.json",
+  "contentDir": "src/content/algorithms",
+  "assetDirectory": "图片",
+  "assetTargetDir": "public/algorithm-assets",
+  "chapterDirectoryPattern": "^\\d+\\.\\s",
+  "excludeFileNamePatterns": [
+    "README",
+    "报告",
+    "审计",
+    "清单覆盖"
+  ]
+}

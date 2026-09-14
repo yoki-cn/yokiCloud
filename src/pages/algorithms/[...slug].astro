@@ -1,0 +1,34 @@
+---
+import type { MarkdownInstance } from "astro";
+
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import { numberedAlgorithmTitle, sectionFromAlgorithmSlug, validateAlgorithmFrontmatter } from "../../data/algorithmFrontmatter";
+
+type AlgorithmMarkdown = MarkdownInstance<Record<string, unknown>>;
+
+export function getStaticPaths() {
+  const algorithmModules = import.meta.glob<AlgorithmMarkdown>("../../content/algorithms/**/*.md", { eager: true });
+  return Object.entries(algorithmModules).map(([path, entry]) => ({
+    params: { slug: path.replace(/^\.\.\/\.\.\/content\/algorithms\//, "").replace(/\.md$/, "") },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props as { entry: AlgorithmMarkdown };
+const Content = entry.Content;
+const frontmatter = validateAlgorithmFrontmatter(entry.frontmatter, entry.file);
+frontmatter.title = numberedAlgorithmTitle(frontmatter.title, Astro.params.slug || "");
+const section = sectionFromAlgorithmSlug(Astro.params.slug || "");
+const toc = entry
+  .getHeadings()
+  .filter((heading) => heading.depth >= 2 && heading.depth <= 4)
+  .map((heading) => ({
+    id: heading.slug,
+    label: heading.text,
+    level: heading.depth - 1,
+  }));
+---
+
+<ArticleLayout frontmatter={frontmatter} toc={toc} section={section}>
+  <Content />
+</ArticleLayout>

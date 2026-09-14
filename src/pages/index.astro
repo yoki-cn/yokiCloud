@@ -1,0 +1,14 @@
+---
+import ArknightsInspiredPortfolio from "./_ArknightsInspiredPortfolio";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { algorithmBoards } from "../data/algorithmBoards";
+import manifest from "../../docs/algorithm-publication-manifest.json";
+import "../styles/algorithm.css";
+---
+
+<BaseLayout
+  title="夜霧yoki | yoki-cloud"
+  description="PRTS-LIKE TERMINAL PORTFOLIO"
+>
+  <ArknightsInspiredPortfolio client:only="react" algorithmBoards={algorithmBoards} algorithmDirectories={manifest.directories} />
+</BaseLayout>

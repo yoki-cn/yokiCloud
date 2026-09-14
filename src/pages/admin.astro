@@ -1,0 +1,14 @@
+---
+import AdminConsole from "./_AdminConsole";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { readdirSync } from "node:fs";
+const images = readdirSync(`${process.cwd()}/public/algorithm-assets/`).filter((name) => /\.(png|jpe?g|gif|webp|svg|avif)$/i.test(name));
+---
+
+<BaseLayout
+  title="Yoki Cloud Admin"
+  description="Yoki Cloud local content admin console."
+  robots="noindex,nofollow"
+>
+  <AdminConsole client:only="react" algorithmImages={images} />
+</BaseLayout>

@@ -1,0 +1,295 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/article.css";
+import "../styles/algorithm.css";
+
+import ArticleChrome from "../components/article/ArticleChrome";
+import ArticleToc from "../components/article/ArticleToc";
+import { siteConfig } from "../config/siteConfig";
+import { getAlgorithmStatusMeta } from "../data/algorithmStatus";
+import LocalStyles from "../styles/localStyles";
+import BaseLayout from "./BaseLayout.astro";
+import { formatDateOnly } from "../utils/formatDate";
+import { algorithmBoards } from "../data/algorithmBoards";
+import manifest from "../../docs/algorithm-publication-manifest.json";
+import "../styles/chapter-navigation.css";
+
+type TocItem = {
+  id: string;
+  label: string;
+  level?: number;
+  children?: TocItem[];
+};
+
+const { frontmatter, toc: generatedToc, section: generatedSection } = Astro.props;
+const title = frontmatter?.title ?? "Untitled Article";
+const isAlgorithm = frontmatter?.kind === "algorithm";
+const explicitDescription = typeof frontmatter?.description === "string" ? frontmatter.description : "";
+const description = explicitDescription || (isAlgorithm ? `${title} 算法板子` : "Yoki Cloud article node.");
+const date = frontmatter?.date ?? "";
+const updated = formatDateOnly(frontmatter?.updated ?? date);
+const category = frontmatter?.category ?? "ARTICLE";
+const tags = Array.isArray(frontmatter?.tags) ? frontmatter.tags : [];
+const section = generatedSection ?? category;
+const algorithmStatus = isAlgorithm ? getAlgorithmStatusMeta(frontmatter?.status) : null;
+const toc = Array.isArray(generatedToc)
+  ? (generatedToc as TocItem[])
+  : Array.isArray(frontmatter?.toc)
+    ? (frontmatter.toc as TocItem[])
+    : [];
+const articlePath = Astro.url.pathname.replace(/\/$/, "");
+const articleSlug = articlePath.split("/").filter(Boolean).at(-1) ?? "article";
+const markdownFilename = frontmatter?.markdownFilename ?? `${articleSlug}.md`;
+const markdownDownloadUrl =
+  frontmatter?.markdownDownloadUrl ?? `${articlePath}.md`;
+const ARTICLE_NAV_ITEMS = [
+  { id: "home", label: "首页" },
+  { id: "index", label: isAlgorithm ? "板子索引" : "Blog 索引" },
+];
+---
+
+<BaseLayout
+  title={`${title} | Yoki Cloud`}
+  description={description}
+  type="article"
+>
+  <div class="app-root article-root min-h-screen bg-[var(--yc-bg-0)] text-[var(--yc-text)]">
+    <LocalStyles />
+
+    <div class="bg-grid fixed inset-0 pointer-events-none"></div>
+    <div class="yc-atmosphere fixed inset-0 pointer-events-none opacity-60"></div>
+    <div class="fixed inset-0 pointer-events-none opacity-20 grain"></div>
+
+    <script is:inline>
+      (() => {
+        try {
+          const raw = window.localStorage.getItem("ark.portal.article.sidebarOpen.v1");
+          const open =
+            raw == null
+              ? window.matchMedia("(min-width: 768px)").matches
+              : JSON.parse(raw) === true;
+          document.documentElement.dataset.articleSidebar = open ? "open" : "closed";
+        } catch {
+          document.documentElement.dataset.articleSidebar = "closed";
+        }
+      })();
+    </script>
+
+    <ArticleChrome
+      client:load
+      brandName={siteConfig.brandName}
+      tagline={isAlgorithm ? "ALGORITHM BOARD / 算法板子" : "BLOG ARTICLE / 阅读节点"}
+      navItems={ARTICLE_NAV_ITEMS}
+      title={title}
+      category={isAlgorithm ? section : category}
+      categoryLabel={isAlgorithm ? "知识域" : "分类"}
+      updated={updated}
+      tags={tags}
+      markdownDownloadUrl={markdownDownloadUrl}
+      markdownFilename={markdownFilename}
+      indexHref={isAlgorithm ? "/algorithms/" : "/#blog"}
+      indexLabel={isAlgorithm ? "算法板子索引" : "Blog 索引"}
+      status={algorithmStatus?.value}
+      enablePdf={isAlgorithm}
+      chapterDirectories={isAlgorithm ? manifest.directories : []}
+      chapterBoards={isAlgorithm ? algorithmBoards.map(({ slug, title, href }) => ({ slug, title, href })) : []}
+    />
+
+    <div class="article-shell">
+      <div class="article-layout">
+        <article class="article-panel">
+          <div class="article-panel-pad article-header border-b border-white/10">
+            <div class="article-kicker">{isAlgorithm ? "算法板子 / ALGORITHM BOARD" : "文章节点 / ARTICLE NODE"}</div>
+            {algorithmStatus ? (
+              <div class="mt-3">
+                <span class="algorithm-status" data-status={algorithmStatus.value} title={algorithmStatus.description}>
+                  <span class="algorithm-status-dot" aria-hidden="true"></span>
+                  <span>{algorithmStatus.value}</span>
+                </span>
+              </div>
+            ) : null}
+            <h1 class:list={["article-title heading-main", { "algorithm-article-title": isAlgorithm }]}>{title}</h1>
+            {explicitDescription ? <p class="article-summary">{explicitDescription}</p> : null}
+
+            <div class="article-meta-grid">
+              {isAlgorithm ? (
+                <>
+                  <div class="article-meta-card">
+                    <div class="article-meta-label">更新时间</div>
+                    <div class="article-meta-value">{updated}</div>
+                  </div>
+                  <div class="article-meta-card">
+                    <div class="article-meta-label">知识域</div>
+                    <div class="article-meta-value">{section}</div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div class="article-meta-card">
+                    <div class="article-meta-label">日期</div>
+                    <div class="article-meta-value">{date}</div>
+                  </div>
+                  <div class="article-meta-card">
+                    <div class="article-meta-label">分类</div>
+                    <div class="article-meta-value">{category}</div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            {tags.length ? (
+              <div class="article-tags">
+                {tags.map((tag: string) => <span class="article-tag">{tag}</span>)}
+              </div>
+            ) : null}
+          </div>
+
+          <div class="article-body ark-prose">
+            <slot />
+          </div>
+        </article>
+
+        <aside class="article-toc">
+          <div class="article-panel article-panel-pad">
+            <div class="article-toc-title">章节路由 / SECTION ROUTER</div>
+            <div class="article-toc-scroll">
+              <ArticleToc client:load toc={toc} />
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script is:inline>
+      (() => {
+        function copyText(text) {
+          if (navigator.clipboard?.writeText) {
+            return navigator.clipboard.writeText(text);
+          }
+          return Promise.reject(new Error("Clipboard API is unavailable."));
+        }
+
+        function createCopyButton(getText) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "article-copy-button";
+          button.textContent = "COPY";
+          button.setAttribute("aria-label", "Copy block source");
+          button.addEventListener("click", async (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const source = getText().trim();
+            if (!source) return;
+            try {
+              await copyText(source);
+              window.dispatchEvent(new CustomEvent("prts:notice", { detail: { message: "PRTS 源码已写入剪贴板，作业准备就绪。", tone: "success" } }));
+              button.textContent = "COPIED";
+              button.classList.add("is-copied");
+              window.setTimeout(() => {
+                button.textContent = "COPY";
+                button.classList.remove("is-copied");
+              }, 1300);
+            } catch {
+              window.dispatchEvent(new CustomEvent("prts:notice", { detail: { message: "PRTS 写入受阻：请检查剪贴板权限，或手动复制。", tone: "error" } }));
+              button.textContent = "FAILED";
+              window.setTimeout(() => {
+                button.textContent = "COPY";
+              }, 1300);
+            }
+          });
+          return button;
+        }
+
+        function createSummary(label, badge, getText) {
+          const summary = document.createElement("summary");
+          summary.className = "article-fold-summary";
+          const toggle = document.createElement("button");
+          toggle.type = "button";
+          toggle.className = "article-fold-toggle";
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.setAttribute("aria-label", `展开或收起 ${badge}`);
+          const arrow = document.createElement("span");
+          arrow.className = "article-fold-arrow";
+          arrow.setAttribute("aria-hidden", "true");
+
+          const text = document.createElement("span");
+          text.className = "article-fold-label";
+          text.textContent = label;
+
+          const chip = document.createElement("span");
+          chip.className = "article-fold-chip";
+          chip.textContent = badge;
+
+          toggle.append(arrow, text, chip);
+          summary.append(toggle, createCopyButton(getText));
+          return summary;
+        }
+
+        function enhanceArticleBlocks() {
+          const root = document.querySelector(".ark-prose");
+          if (!root) return;
+
+          root.querySelectorAll("a.article-anchor").forEach((anchor) => anchor.remove());
+
+          root.querySelectorAll("pre").forEach((pre, index) => {
+            if (pre.closest(".article-fold")) return;
+            if (!root.contains(pre.parentElement)) return;
+            const codeLanguage = pre.querySelector("code")?.className?.match(/language-([\w+-]+)/)?.[1];
+            const lang = (pre.getAttribute("data-language") || codeLanguage || "TEXT").toUpperCase();
+            const details = document.createElement("details");
+            details.className = "article-fold article-code-fold";
+            details.open = true;
+            details.append(createSummary("CODE BUFFER", lang || "CODE", () => pre.textContent || ""));
+            const parent = pre.parentNode;
+            if (!parent) return;
+            parent.replaceChild(details, pre);
+            details.append(pre);
+            pre.setAttribute("data-code-index", String(index + 1));
+          });
+
+          root.querySelectorAll(".katex-display").forEach((math, index) => {
+            if (math.closest(".article-fold")) return;
+            if (!root.contains(math.parentElement)) return;
+            const details = document.createElement("details");
+            details.className = "article-fold article-math-fold";
+            details.open = true;
+            details.append(createSummary("MATH BUFFER", `FORMULA-${String(index + 1).padStart(2, "0")}`, () => {
+              const annotation = math.querySelector('annotation[encoding="application/x-tex"]');
+              return annotation?.textContent || math.textContent || "";
+            }));
+            const parent = math.parentNode;
+            if (!parent) return;
+            parent.replaceChild(details, math);
+            details.append(math);
+          });
+
+          root.querySelectorAll(".article-fold").forEach((details) => {
+            const summary = details.querySelector("summary");
+            let animation;
+            let targetOpen = details.open;
+            summary.addEventListener("click", (event) => {
+              if (event.target.closest(".article-copy-button")) return;
+              event.preventDefault();
+              targetOpen = !targetOpen;
+              summary.querySelector(".article-fold-toggle").setAttribute("aria-expanded", String(targetOpen));
+              if (matchMedia("(prefers-reduced-motion: reduce)").matches) { details.open = targetOpen; return; }
+              const start = details.getBoundingClientRect().height;
+              animation?.cancel();
+              details.open = true;
+              details.style.height = "auto";
+              const end = targetOpen ? details.getBoundingClientRect().height : summary.getBoundingClientRect().height + 2;
+              animation = details.animate({ height: [`${start}px`, `${end}px`] }, { duration: 240, easing: "cubic-bezier(.22,1,.36,1)" });
+              animation.onfinish = () => { details.open = targetOpen; details.style.height = ""; animation = null; };
+            });
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", enhanceArticleBlocks, { once: true });
+        } else {
+          enhanceArticleBlocks();
+        }
+      })();
+    </script>
+  </div>
+</BaseLayout>

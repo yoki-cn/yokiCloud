@@ -1,0 +1,280 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --yc-page-gutter: clamp(16px, 4vw, 64px);
+  color-scheme: dark;
+  --yc-bg-0: #05070b;
+  --yc-bg-1: #0b1016;
+  --yc-surface: rgba(255, 255, 255, 0.06);
+  --yc-surface-strong: rgba(255, 255, 255, 0.1);
+  --yc-surface-inner: rgba(255, 255, 255, 0.045);
+  --yc-surface-unbounded: rgba(255, 255, 255, 0.046);
+  --yc-line: rgba(255, 255, 255, 0.12);
+  --yc-line-strong: rgba(255, 255, 255, 0.24);
+  --yc-corner-line: rgba(255, 255, 255, 0.18);
+  --yc-text: rgba(255, 255, 255, 0.94);
+  --yc-muted: rgba(255, 255, 255, 0.64);
+  --yc-dim: rgba(255, 255, 255, 0.42);
+  --yc-cyan: #67d4ff;
+  --yc-cyan-soft: rgba(103, 212, 255, 0.16);
+  --yc-amber: #ffb86b;
+  --yc-amber-soft: rgba(255, 170, 88, 0.14);
+  --yc-green: #98efba;
+  --yc-focus: color-mix(in srgb, var(--yc-cyan) 64%, transparent);
+  --yc-radius-sm: 8px;
+  --yc-radius-md: 10px;
+  --yc-radius-lg: 12px;
+  --yc-shadow-edge: 0 0 0 1px rgba(255, 255, 255, 0.065);
+  --yc-shadow-contact: 0 1px 2px rgba(0, 0, 0, 0.28);
+  --yc-shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  --yc-shadow-hairline:
+    var(--yc-shadow-edge),
+    var(--yc-shadow-contact),
+    var(--yc-shadow-highlight);
+  --yc-shadow-panel:
+    var(--yc-shadow-edge),
+    var(--yc-shadow-contact),
+    0 18px 42px rgba(0, 0, 0, 0.42),
+    var(--yc-shadow-highlight);
+  --yc-shadow-floating:
+    0 0 0 1px rgba(255, 255, 255, 0.075),
+    0 2px 4px rgba(0, 0, 0, 0.34),
+    0 22px 52px rgba(0, 0, 0, 0.50),
+    var(--yc-shadow-highlight);
+  --yc-shadow-modal:
+    0 0 0 1px rgba(255, 255, 255, 0.085),
+    0 2px 4px rgba(0, 0, 0, 0.36),
+    0 28px 72px rgba(0, 0, 0, 0.58),
+    var(--yc-shadow-highlight);
+  --yc-shadow-compact:
+    var(--yc-shadow-edge),
+    var(--yc-shadow-contact),
+    0 8px 20px rgba(0, 0, 0, 0.22),
+    var(--yc-shadow-highlight);
+  --yc-shadow-compact-interactive:
+    0 0 0 1px rgba(103, 212, 255, 0.14),
+    0 2px 4px rgba(0, 0, 0, 0.30),
+    0 10px 26px rgba(0, 0, 0, 0.32);
+  --yc-shadow-unbounded:
+    0 14px 34px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.030);
+  --yc-shadow-unbounded-hover:
+    0 18px 42px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  --yc-shadow-interactive:
+    0 0 0 1px rgba(103, 212, 255, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.30),
+    0 18px 36px rgba(0, 0, 0, 0.44),
+    0 0 20px color-mix(in srgb, var(--yc-cyan) 10%, transparent);
+  --yc-separator-vertical: linear-gradient(to bottom, rgba(88, 199, 255, 0), rgba(210, 244, 255, 0.88), rgba(88, 199, 255, 0.70), rgba(88, 199, 255, 0));
+  --yc-separator-horizontal: linear-gradient(to right, rgba(88, 199, 255, 0), rgba(210, 244, 255, 0.88), rgba(88, 199, 255, 0.70), rgba(88, 199, 255, 0));
+  --yc-font-hud: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --yc-font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-root .yc-page-frame { padding-left: var(--yc-page-gutter); padding-right: var(--yc-page-gutter); }
+
+[data-theme="light"] {
+  color-scheme: light;
+  --yc-bg-0: #f5f2ea;
+  --yc-bg-1: #e8dfd0;
+  --yc-surface: rgba(255, 250, 241, 0.96);
+  --yc-surface-strong: rgba(255, 253, 247, 0.98);
+  --yc-surface-inner: #efe6d7;
+  --yc-surface-unbounded: rgba(255, 250, 241, 0.74);
+  --yc-line: rgba(126, 108, 82, 0.38);
+  --yc-line-strong: rgba(107, 87, 57, 0.58);
+  --yc-corner-line: rgba(126, 108, 82, 0.28);
+  --yc-text: #171b22;
+  --yc-muted: #4f5663;
+  --yc-dim: #69707c;
+  --yc-cyan: #176f83;
+  --yc-cyan-soft: rgba(23, 111, 131, 0.12);
+  --yc-amber: #8a5b12;
+  --yc-amber-soft: rgba(184, 128, 35, 0.16);
+  --yc-green: #226c45;
+  --yc-focus: rgba(23, 111, 131, 0.48);
+  --yc-shadow-edge: 0 0 0 1px rgba(15, 23, 42, 0.07);
+  --yc-shadow-contact: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --yc-shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  --yc-shadow-hairline:
+    var(--yc-shadow-edge),
+    var(--yc-shadow-contact),
+    var(--yc-shadow-highlight);
+  --yc-shadow-panel:
+    var(--yc-shadow-edge),
+    var(--yc-shadow-contact),
+    0 18px 40px rgba(15, 23, 42, 0.12),
+    var(--yc-shadow-highlight);
+  --yc-shadow-floating:
+    0 0 0 1px rgba(15, 23, 42, 0.08),
+    var(--yc-shadow-contact),
+    0 22px 52px rgba(15, 23, 42, 0.16),
+    var(--yc-shadow-highlight);
+  --yc-shadow-modal:
+    0 0 0 1px rgba(15, 23, 42, 0.08),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    0 28px 72px rgba(15, 23, 42, 0.20),
+    var(--yc-shadow-highlight);
+  --yc-shadow-compact:
+    0 0 0 1px rgba(15, 23, 42, 0.065),
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 8px 20px rgba(15, 23, 42, 0.08),
+    var(--yc-shadow-highlight);
+  --yc-shadow-compact-interactive:
+    0 0 0 1px rgba(15, 23, 42, 0.09),
+    0 2px 4px rgba(15, 23, 42, 0.06),
+    0 10px 26px rgba(15, 23, 42, 0.11);
+  --yc-shadow-unbounded:
+    0 16px 38px rgba(116, 97, 67, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.70);
+  --yc-shadow-unbounded-hover:
+    0 20px 48px rgba(116, 97, 67, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  --yc-shadow-interactive:
+    0 0 0 1px rgba(15, 23, 42, 0.10),
+    0 2px 4px rgba(15, 23, 42, 0.07),
+    0 18px 34px rgba(15, 23, 42, 0.14),
+    var(--yc-shadow-highlight);
+  --yc-separator-vertical: linear-gradient(to bottom, rgba(138, 91, 18, 0), rgba(138, 91, 18, 0.92), rgba(245, 213, 150, 0.70), rgba(138, 91, 18, 0));
+  --yc-separator-horizontal: linear-gradient(to right, rgba(138, 91, 18, 0), rgba(138, 91, 18, 0.92), rgba(245, 213, 150, 0.70), rgba(138, 91, 18, 0));
+}
+
+@layer components {
+  .yc-hud-text {
+    font-family: var(--yc-font-hud);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+
+  .yc-focus-ring {
+    outline: 2px solid var(--yc-focus);
+    outline-offset: 2px;
+  }
+
+  .yc-elevation-panel {
+    box-shadow: var(--yc-shadow-panel);
+  }
+
+  .yc-elevation-floating {
+    box-shadow: var(--yc-shadow-floating);
+  }
+
+  .yc-elevation-modal {
+    box-shadow: var(--yc-shadow-modal);
+  }
+
+  .yc-elevation-compact {
+    box-shadow: var(--yc-shadow-compact);
+  }
+
+  .yc-elevation-hairline {
+    box-shadow: var(--yc-shadow-hairline);
+  }
+
+  .yc-unbounded-surface {
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--yc-text) 5%, transparent), transparent 54%),
+      var(--yc-surface-unbounded);
+    box-shadow: var(--yc-shadow-unbounded);
+  }
+
+  .yc-unbounded-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    background: linear-gradient(105deg, color-mix(in srgb, var(--yc-text) 7%, transparent), transparent 42%);
+  }
+
+  [data-theme="light"] .yc-unbounded-surface::before {
+    opacity: 0.48;
+    background: linear-gradient(105deg, rgba(180, 160, 130, 0.14), transparent 42%);
+  }
+
+  .yc-unbounded-surface > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .yc-unbounded-accent {
+    background:
+      linear-gradient(135deg, var(--yc-cyan-soft), transparent 52%),
+      var(--yc-surface-unbounded);
+  }
+
+  .yc-unbounded-warm {
+    background:
+      linear-gradient(135deg, var(--yc-amber-soft), transparent 52%),
+      var(--yc-surface-unbounded);
+  }
+
+  .yc-unbounded-success {
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--yc-green) 13%, transparent), transparent 52%),
+      var(--yc-surface-unbounded);
+  }
+
+  .yc-unbounded-danger {
+    background:
+      linear-gradient(135deg, rgba(239, 68, 68, 0.13), transparent 52%),
+      var(--yc-surface-unbounded);
+  }
+
+  .yc-unbounded-interactive:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--yc-shadow-unbounded-hover);
+  }
+
+  .yc-interactive-surface:hover {
+    box-shadow: var(--yc-shadow-interactive);
+  }
+
+  .yc-atmosphere {
+    background: linear-gradient(135deg, var(--yc-cyan-soft), transparent 38%, var(--yc-amber-soft));
+  }
+
+  .yc-cut-corner {
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+
+  .yc-scan-surface {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .yc-scan-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.46;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), var(--yc-cyan-soft), transparent 58%);
+  }
+
+  [data-theme="light"] .yc-scan-surface::after {
+    background: linear-gradient(135deg, rgba(180, 160, 130, 0.13), var(--yc-amber-soft), transparent 58%);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--yc-bg-0);
+  color: var(--yc-text);
+  font-family: var(--yc-font-body);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--yc-cyan-soft);
+  color: var(--yc-text);
+}

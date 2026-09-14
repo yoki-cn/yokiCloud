@@ -1,0 +1,24 @@
+---
+import AlgorithmArchive from "../_AlgorithmArchive";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteConfig } from "../../config/siteConfig";
+import { algorithmBoards as boards } from "../../data/algorithmBoards";
+import "../../styles/algorithm.css";
+import manifest from "../../../docs/algorithm-publication-manifest.json";
+
+---
+
+<BaseLayout
+  title="算法板子 | Yoki Cloud"
+  description="按知识点和章节组织的模块化算法板子，支持 Obsidian Markdown、源码下载与 PDF 下载。"
+>
+  <AlgorithmArchive
+    client:load
+    boards={boards}
+    directories={manifest.directories}
+    brandName={siteConfig.brandName}
+    githubUrl={siteConfig.links.github}
+    linkedinUrl={siteConfig.links.linkedin}
+    email={siteConfig.email}
+  />
+</BaseLayout>
