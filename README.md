@@ -177,7 +177,7 @@ npm run preview
 - Obsidian 源目录：`G:\Algorithms\Algorithms`
 - 仓库镜像：`src/content/algorithms/`；此目录由同步脚本生成，不应作为日常编辑入口。
 - 附件镜像：`public/algorithm-assets/`；Obsidian 图片嵌入 `![[image.png]]` 会读取 `/algorithm-assets/image.png`。
-- 同步范围：`docs/algorithm-publication-manifest.json` 中列出的 63 份板子及源目录图片。完整 30 个目录由同一清单保留，空目录以 `.gitkeep` 占位并在网页显示“空”。新板子需要先加入清单才能同步。
+- 同步范围：`docs/algorithm-publication-manifest.json` 中列出的 106 份板子及源目录图片。完整 37 个目录由同一清单保留，空目录以 `.gitkeep` 占位并在网页显示“空”。新板子需要先加入清单才能同步。
 - 文件夹可继续嵌套，索引会自动发现所有同步后的板子，无需手动维护列表。
 - 每份源文件手动填写 `kind`、`title`、`status`、`order`、`tags`；`updated` 由同步程序按文件修改时间生成。
 - `section` 由文件所在的顶层章节目录生成，并自动去掉数字前缀，不写入 YAML。
