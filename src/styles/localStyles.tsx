@@ -1202,6 +1202,17 @@
         filter: brightness(0) invert(1);
       }
 
+      /* Preserve contrasting backgrounds and interior details when reversing these icons. */
+      .app-root .bm-favicon-dark-artwork,
+      .app-root .bm-favicon-light-artwork {
+        filter: grayscale(1);
+      }
+
+      [data-theme="dark"] .app-root .bm-favicon-dark-artwork,
+      [data-theme="light"] .app-root .bm-favicon-light-artwork {
+        filter: grayscale(1) invert(1);
+      }
+
       .app-root .bm-icon-fallback { color: rgba(255,255,255,0.70); }
 
       .app-root .bm-label {

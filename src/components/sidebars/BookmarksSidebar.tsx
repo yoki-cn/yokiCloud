@@ -136,7 +136,11 @@ function FaviconMark({ url, label, icon }: { url: string; label: string; icon?: 
       className={cx(
         "bm-favicon",
         /\/logo\/(?:openai\.svg|github\.svg|bookmarks\/oi\.wiki\.ico)$/.test(src) &&
-          "bm-favicon-monochrome"
+          "bm-favicon-monochrome",
+        /\/logo\/bookmarks\/(?:atcoder\.jp\.ico|xcpcrating\.png)$/.test(src) &&
+          "bm-favicon-dark-artwork",
+        /\/logo\/bookmarks\/xcpc-sight\.svg$/.test(src) &&
+          "bm-favicon-light-artwork"
       )}
       loading="lazy"
       decoding="async"
