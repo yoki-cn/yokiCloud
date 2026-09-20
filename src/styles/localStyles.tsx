@@ -1197,6 +1197,11 @@
         object-fit: contain;
       }
 
+      /* Recolor monochrome artwork while preserving its original alpha channel. */
+      [data-theme="dark"] .app-root .bm-favicon-monochrome {
+        filter: brightness(0) invert(1);
+      }
+
       .app-root .bm-icon-fallback { color: rgba(255,255,255,0.70); }
 
       .app-root .bm-label {

@@ -128,7 +128,11 @@ function FaviconMark({ url, label, icon }: { url: string; label: string; icon?: 
     <img
       src={sitePath(src)}
       alt={label}
-      className="bm-favicon"
+      className={cx(
+        "bm-favicon",
+        /\/logo\/(?:openai\.svg|github\.svg|bookmarks\/oi\.wiki\.ico)$/.test(src) &&
+          "bm-favicon-monochrome"
+      )}
       loading="lazy"
       decoding="async"
       onError={() => setIdx((s) => Math.min(s + 1, candidates.length))}

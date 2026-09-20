@@ -8,7 +8,7 @@ export type BookmarkSeed = {
 // - Public build is read-only for visitors.
 // - Update this list, then rebuild/deploy.
 export const BOOKMARKS: BookmarkSeed[] = [
-  { title: "GoAI", url: "https://algo.zhiyuansofts.cn/" },
+  { title: "GoAIgo", url: "https://algo.zhiyuansofts.cn/" },
   { title: "大观园", url: "https://cxyonly.fans/math" },
   { title: "ChatGPT", url: "https://chatgpt.com/", icon: "openai.svg" },
   { title: "Gemini", url: "https://gemini.google.com/app", icon: "gemini-color.svg" },
