@@ -3,14 +3,17 @@ import { notify } from "../../utils/notifications";
 import { boardPdfUrl, fetchBoardPdf, PDF_NOT_FOUND } from "../../utils/boardPdf";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, Printer } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 import { useTheme } from "../../hooks/useTheme";
+import { useSidebarMotion } from "../../hooks/useSidebarMotion";
 import HeaderTopBar from "../sections/HeaderTopBar";
 import { AlgorithmStatusBadge, DownloadRouteCard } from "../ui";
 import BackLink from "../ui/BackLink";
 import ChapterNavigation, { type ChapterBoard } from "../algorithm/ChapterNavigation";
+
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 export type ArticleNavItem = {
   id: string;
@@ -54,6 +57,7 @@ export default function ArticleChrome({
   chapterDirectories = [],
   chapterBoards = [],
 }: ArticleChromeProps) {
+  const sidebarMotion = useSidebarMotion();
   const [sidebarOpen, setSidebarOpen] = useLocalStorageState<boolean>(
     "ark.portal.article.sidebarOpen.v1",
     () => {
@@ -64,7 +68,7 @@ export default function ArticleChrome({
   const [menuOpen, setMenuOpen] = useState(false);
   const { isLight, toggleTheme } = useTheme();
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     document.documentElement.dataset.articleSidebar = sidebarOpen ? "open" : "closed";
     return () => {
       delete document.documentElement.dataset.articleSidebar;
@@ -141,10 +145,7 @@ export default function ArticleChrome({
             <motion.aside
               className="article-sidebar fixed z-30 top-16 bottom-4 left-4 max-w-[calc(100vw-1.5rem)]"
               style={{ width: "clamp(240px, 24vw, 340px)" }}
-              initial={{ x: -24 }}
-              animate={{ x: 0 }}
-              exit={{ x: -24 }}
-              transition={{ duration: 0.22 }}
+              {...sidebarMotion}
             >
               <div className="article-panel article-sidebar-panel h-full article-panel-pad flex min-h-0 flex-col">
                 <div className="scanline" />

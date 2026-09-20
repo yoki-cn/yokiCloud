@@ -7,6 +7,7 @@ import { BOOKMARKS } from "../../data/bookmarks";
 import { SIDEBAR_BULLETINS } from "../../data/sidebar";
 import { SIDEBAR_UPDATES } from "../../data/milestones";
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
+import { useSidebarMotion } from "../../hooks/useSidebarMotion";
 import { handleExternalLinkClick } from "../../utils/linkActions";
 import { IconButton } from "../ui/Buttons";
 import CutCorner from "../ui/CutCorner";
@@ -212,6 +213,7 @@ function SidebarBlock({ id, icon: Icon, label, sublabel, badge, open, onToggle, 
 }
 
 export default function BookmarksSidebar({ open, onOpenChange }: BookmarksSidebarProps) {
+  const sidebarMotion = useSidebarMotion();
   const bookmarks = useMemo(() => seedBookmarks(), []);
   const recentLinks = SIDEBAR_UPDATES;
   const [bulletinOpen, setBulletinOpen] = useLocalStorageState<boolean>(
@@ -246,10 +248,7 @@ export default function BookmarksSidebar({ open, onOpenChange }: BookmarksSideba
               "max-w-[calc(100vw-1.5rem)]"
             )}
             style={{ width: "var(--sidebar-w)", left: "var(--sidebar-offset)" }}
-            initial={{ x: -24 }}
-            animate={{ x: 0 }}
-            exit={{ x: -24 }}
-            transition={{ duration: 0.22 }}
+            {...sidebarMotion}
           >
             <Panel
               className="bookmarks-panel h-full"

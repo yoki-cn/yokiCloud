@@ -4,6 +4,9 @@
 
 :root {
   --yc-page-gutter: clamp(16px, 4vw, 64px);
+  /* Match useSidebarMotion so the content makes room as the sidebar slides. */
+  --yc-sidebar-duration: 320ms;
+  --yc-sidebar-ease: cubic-bezier(0.16, 1, 0.3, 1);
   color-scheme: dark;
   --yc-bg-0: #05070b;
   --yc-bg-1: #0b1016;
@@ -274,6 +277,10 @@ body {
   color: var(--yc-text);
   font-family: var(--yc-font-body);
   text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --yc-sidebar-duration: 0ms; }
 }
 
 /* Solid foundations for every sidebar, including article and archive navigation. */

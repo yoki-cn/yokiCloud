@@ -1047,7 +1047,7 @@
       }
 
       .content-rail {
-        transition: padding-left 220ms ease;
+        transition: padding-left var(--yc-sidebar-duration) var(--yc-sidebar-ease);
       }
 
       @media (min-width: 768px) {
