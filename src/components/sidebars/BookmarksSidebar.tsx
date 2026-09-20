@@ -119,7 +119,12 @@ function FaviconMark({ url, label, icon }: { url: string; label: string; icon?: 
   if (!src) {
     return (
       <span className="bm-icon-fallback" aria-hidden="true">
-        <Bookmark className="w-4 h-4" />
+        {/* QOJ has no verified favicon; use its name as a recognizable fallback. */}
+        {/^https?:\/\/qoj\.ac(?:[/:?#]|$)/i.test(url) ? (
+          <span className="text-[11px] font-bold tracking-tight">QOJ</span>
+        ) : (
+          <Bookmark className="w-4 h-4" />
+        )}
       </span>
     );
   }
