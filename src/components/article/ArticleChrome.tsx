@@ -141,9 +141,9 @@ export default function ArticleChrome({
             <motion.aside
               className="article-sidebar fixed z-30 top-16 bottom-4 left-4 max-w-[calc(100vw-1.5rem)]"
               style={{ width: "clamp(240px, 24vw, 340px)" }}
-              initial={{ x: -24, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -24, opacity: 0 }}
+              initial={{ x: -24 }}
+              animate={{ x: 0 }}
+              exit={{ x: -24 }}
               transition={{ duration: 0.22 }}
             >
               <div className="article-panel article-sidebar-panel h-full article-panel-pad flex min-h-0 flex-col">

@@ -246,9 +246,9 @@ export default function BookmarksSidebar({ open, onOpenChange }: BookmarksSideba
               "max-w-[calc(100vw-1.5rem)]"
             )}
             style={{ width: "var(--sidebar-w)", left: "var(--sidebar-offset)" }}
-            initial={{ x: -24, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -24, opacity: 0 }}
+            initial={{ x: -24 }}
+            animate={{ x: 0 }}
+            exit={{ x: -24 }}
             transition={{ duration: 0.22 }}
           >
             <Panel

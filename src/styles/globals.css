@@ -7,6 +7,7 @@
   color-scheme: dark;
   --yc-bg-0: #05070b;
   --yc-bg-1: #0b1016;
+  --yc-sidebar-bg: #14191f;
   --yc-surface: rgba(255, 255, 255, 0.06);
   --yc-surface-strong: rgba(255, 255, 255, 0.1);
   --yc-surface-inner: rgba(255, 255, 255, 0.045);
@@ -80,6 +81,7 @@
   color-scheme: light;
   --yc-bg-0: #f5f2ea;
   --yc-bg-1: #e8dfd0;
+  --yc-sidebar-bg: #fffaf1;
   --yc-surface: rgba(255, 250, 241, 0.96);
   --yc-surface-strong: rgba(255, 253, 247, 0.98);
   --yc-surface-inner: #efe6d7;
@@ -272,6 +274,14 @@ body {
   color: var(--yc-text);
   font-family: var(--yc-font-body);
   text-rendering: optimizeLegibility;
+}
+
+/* Solid foundations for every sidebar, including article and archive navigation. */
+.app-root .panel.bookmarks-panel,
+.article-root .article-panel.article-sidebar-panel,
+.article-root .article-toc > .article-panel,
+.app-root .algorithm-section-nav {
+  background-color: var(--yc-sidebar-bg);
 }
 
 ::selection {
