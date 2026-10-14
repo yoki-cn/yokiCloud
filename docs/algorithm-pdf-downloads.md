@@ -16,3 +16,9 @@ PDF 由作者自行导出并上传，网站不再调用浏览器打印生成 PDF
 > PRTS 检索完毕：目标 PDF 档案尚未归档，请等待后勤补全。
 
 连接失败、超时或服务器错误则显示通讯失败提示，以免误报文件缺失。
+
+## 首页板子 2.0
+
+首页六册下载文件位于 `public/algorithm-downloads/2.0/`，入口与大小由 `src/data/algorithmDownloads.ts` 定义。文件保留原始 PDF 字节，不依赖逐篇 PDF 检索。
+
+Math 使用 `algorithm-sync.config.json` 中的 `mathSourceDir` 同步。网站路径去除编号，以独立 Math 板块排在末尾；源文件保持不变。README 与原始总目录不作为正文发布。

@@ -1,3 +1,4 @@
+import { algorithmDownloads } from "../data/algorithmDownloads";
 import { sitePath } from "../utils/sitePath";
 import { ArrowRight, BookOpen, Download, FolderTree, Search, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -149,6 +150,22 @@ export default function AlgorithmArchive({
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="pt-8" aria-label="板子 2.0 PDF 下载">
+        <Panel label="板子 2.0" sublabel="PDF DOWNLOADS" icon={Download}>
+          <p className="mb-4 text-sm text-[var(--yc-dim)]">完整板子 PDF，按专题分为六册，下载后可离线阅读。</p>
+          <div className="algorithm-download-grid">
+            {algorithmDownloads.map((item) => (
+              <a key={item.file} className="algorithm-download-card"
+                href={sitePath(`/algorithm-downloads/2.0/${item.file}`)} download={item.file}
+                aria-label={`下载 ${item.name}.pdf · ${item.label}`}>
+                <div className="min-w-0"><strong>{item.name}</strong><span>{item.label}</span></div>
+                <div className="algorithm-download-meta"><span>PDF · {item.size}</span><Download size={16} aria-hidden="true" /></div>
+              </a>
+            ))}
+          </div>
+        </Panel>
       </section>
 
       <section className="py-8 md:py-10">

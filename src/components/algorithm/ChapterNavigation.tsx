@@ -55,7 +55,7 @@ function ChapterPanel({ branch, depth, directories, boards, open, close, enter, 
 }
 
 export default function ChapterNavigation({ directories, boards }: { directories: string[]; boards: ChapterBoard[] }) {
-  const dirs = useMemo(() => directories.filter(path => path.split("/")[0] !== "图片").sort((a, b) => a.localeCompare(b, "zh-CN", { numeric: true })), [directories]);
+  const dirs = useMemo(() => directories.filter(path => path.split("/")[0] !== "图片"), [directories]);
   const nav = useRef<HTMLElement>(null);
   const rail = useRef<HTMLDivElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout>>();

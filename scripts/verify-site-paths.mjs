@@ -1,3 +1,4 @@
+import { decodeHTML } from "entities";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
@@ -30,8 +31,8 @@ const pages = walk("dist").filter(f => f.endsWith(".html"));
 let references = 0;
 for (const file of pages) {
   const html = fs.readFileSync(file, "utf8");
-  for (const match of html.matchAll(/(?:href|src)="(\/[^"?#]*)/g)) {
-    const url = decodeURIComponent(match[1]);
+  for (const match of html.matchAll(/(?:href|src)="(\/[^"]*)/g)) {
+    const url = decodeURIComponent(decodeHTML(match[1]).split(/[?#]/)[0]);
     if (url.startsWith("//")) continue;
     assert(url === prefix || url.startsWith(prefix + "/"), `${file}: missing base in ${url}`);
     const local = url.slice(prefix.length) || "/";

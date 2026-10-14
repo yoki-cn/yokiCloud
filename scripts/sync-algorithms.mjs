@@ -136,21 +136,25 @@ function validateManualFrontmatter(frontmatter) {
   return issues;
 }
 
-async function transformBoard(sourcePath, assetSourceDir) {
+async function transformBoard(sourcePath, assetSourceDir, math = false) {
   const source = await readFile(sourcePath, "utf8");
   const fileInfo = await stat(sourcePath);
   const { frontmatter: sourceFrontmatter, body: rawBody } = parseFrontmatter(source);
   const issues = validateManualFrontmatter(sourceFrontmatter);
   if (issues.length) return { content: null, issues };
 
-  const body = rewriteAssetLinks(removeLeadingDocumentTitle(rawBody, sourceFrontmatter.title), assetSourceDir).trim();
+  // Put display delimiters on their own lines for remark-math; preserve TeX content.
+  const displayBody = math ? rawBody
+    .replace(/^(#{1,2}\s+)\d+(?:\.\d+)*\.?\s+/m, "$1")
+    .replace(/^\$\$([\s\S]*?)\$\$/gm, (_match, tex) => `\n$$\n${tex.trim()}\n$$\n`) : rawBody;
+  const body = rewriteAssetLinks(removeLeadingDocumentTitle(displayBody, sourceFrontmatter.title), assetSourceDir).trim();
 
   const frontmatter = {
     kind: sourceFrontmatter.kind,
     title: sourceFrontmatter.title.trim(),
     updated: dateString(fileInfo.mtime),
     status: sourceFrontmatter.status,
-    order: sourceFrontmatter.order,
+    order: sourceFrontmatter.order + (math ? 1_000_000 : 0),
     tags: sourceFrontmatter.tags,
   };
 
@@ -216,7 +220,7 @@ export async function syncAlgorithms(options = {}) {
   const excludes = compileExcludes(config.excludeFileNamePatterns);
   const sourceFiles = await walkFiles(config.sourceDir);
   const manifest = config.manifest ? JSON.parse(await readFile(resolve(repoRoot, config.manifest), "utf8")) : null;
-  const selected = manifest ? new Set(manifest.files.map((file) => file.path)) : null;
+  const selected = manifest ? new Set(manifest.files.filter((file) => !file.path.startsWith("Math/")).map((file) => file.path)) : null;
   const boardFiles = sourceFiles.filter((file) => {
     if (extname(file).toLowerCase() !== ".md") return false;
     const rel = toPosix(relative(config.sourceDir, file));
@@ -228,13 +232,31 @@ export async function syncAlgorithms(options = {}) {
     throw new Error("发布清单中的文件缺失，请先核对源目录和清单。同步尚未写入。");
   }
 
+  // Math is an independent source; keep it in the same expected set so pruning is safe.
+  const mathBoards = [];
+  if (config.mathSourceDir) {
+    const mathRoot = resolve(config.mathSourceDir);
+    if (!existsSync(mathRoot)) throw new Error(`Math 源目录不存在：${mathRoot}`);
+    for (const file of await walkFiles(mathRoot)) {
+      if (!/^\d+\.\d+ .+\.md$/i.test(basename(file))) continue;
+      const sourceRel = toPosix(relative(mathRoot, file));
+      const rel = "Math/" + sourceRel.split("/").map(part => part.replace(/^\d+(?:\.\d+)*\.?\s+/, "")).join("/");
+      mathBoards.push({ file, rel, sourceRel });
+    }
+    mathBoards.sort((a, b) => a.sourceRel.localeCompare(b.sourceRel, "zh-CN", { numeric: true }));
+    if (!mathBoards.length) throw new Error("Math 源目录没有可发布的小节，已停止同步。");
+  }
+  const inputs = [
+    ...boardFiles.map(file => ({ file, rel: toPosix(relative(config.sourceDir, file)), math: false })),
+    ...mathBoards.map(board => ({ ...board, math: true })),
+  ];
+  if (new Set(inputs.map(board => board.rel)).size !== inputs.length) throw new Error("发布路径发生重名。");
   const expectedBoards = new Map();
   const metadataIssues = [];
-  for (const sourceFile of boardFiles) {
-    const rel = toPosix(relative(config.sourceDir, sourceFile));
+  for (const { file: sourceFile, rel, math } of inputs) {
     const target = resolve(config.contentDir, ...rel.split("/"));
     assertInside(config.contentDir, target, "算法板子目标文件");
-    const transformed = await transformBoard(sourceFile, config.assetSourceDir);
+    const transformed = await transformBoard(sourceFile, config.assetSourceDir, math);
     if (transformed.issues.length) {
       metadataIssues.push({ path: rel, fields: transformed.issues });
       if (existsSync(target)) expectedBoards.set(target, await readFile(target));
@@ -264,6 +286,16 @@ export async function syncAlgorithms(options = {}) {
     expectedAssets.set(target, await readFile(sourceFile));
   }
 
+  if (manifest && config.mathSourceDir) {
+    manifest.directories = manifest.directories.filter(path => path !== "Math" && !path.startsWith("Math/"));
+    manifest.directories.push("Math", ...new Set(mathBoards.map(board => board.rel.split("/").slice(0, -1).join("/"))));
+    manifest.files = manifest.files.filter(file => !file.path.startsWith("Math/"));
+    for (const board of mathBoards) {
+      const { frontmatter } = parseFrontmatter(await readFile(board.file, "utf8"));
+      manifest.files.push({ path: board.rel, status: frontmatter.status, reasons: ["Math 数学工具小节"] });
+    }
+    if (!options.dryRun) await writeFile(resolve(repoRoot, config.manifest), JSON.stringify(manifest, null, 2) + "\n");
+  }
   const boardWrites = await writeExpectedFiles(expectedBoards, Boolean(options.dryRun));
   if (manifest && !options.dryRun) {
     for (const directory of manifest.directories) {
@@ -287,8 +319,8 @@ export async function syncAlgorithms(options = {}) {
   return {
     skipped: false,
     sourceDir: config.sourceDir,
-    boardCount: boardFiles.length,
-    validBoardCount: boardFiles.length - metadataIssues.length,
+    boardCount: inputs.length,
+    validBoardCount: inputs.length - metadataIssues.length,
     metadataIssues,
     requiredFields: MANUAL_FRONTMATTER_FIELDS,
     assetCount: expectedAssets.size,
@@ -368,13 +400,13 @@ async function runCli() {
     }
   }
 
-  const watcher = watchDirectory(config.sourceDir, { recursive: true }, () => {
+  const watchers = [config.sourceDir, config.mathSourceDir].filter(Boolean).map(root => watchDirectory(root, { recursive: true }, () => {
     if (timer) clearTimeout(timer);
     timer = setTimeout(executeQueuedSync, 350);
-  });
+  }));
 
   console.log(`[algorithms] 正在监听：${config.sourceDir}`);
-  const close = () => watcher.close();
+  const close = () => watchers.forEach(watcher => watcher.close());
   process.once("SIGINT", close);
   process.once("SIGTERM", close);
 }

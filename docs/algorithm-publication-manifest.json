@@ -44,7 +44,21 @@
     "14. 概率与期望",
     "15. 二维计算几何",
     "16. 三维、球面与特殊几何",
-    "17. 经典模型、专题与结论表"
+    "17. 经典模型、专题与结论表",
+    "Math",
+    "Math/组合恒等式、反演与计数",
+    "Math/生成函数、多项式与置换",
+    "Math/树、森林、函数图与图论计数",
+    "Math/线性代数、插值与线性递推",
+    "Math/数论、算术函数、同余和筛法",
+    "Math/概率、期望、随机过程与常见分布",
+    "Math/平面几何、解析几何与凸性",
+    "Math/立体几何、空间向量与球面公式",
+    "Math/特殊数列、树形偏序与高级组合模型",
+    "Math/博弈论、棋盘距离与离散状态",
+    "Math/gcd、mex、位运算和区间聚合",
+    "Math/常用求和、初等函数、分析与不等式",
+    "Math/高阶代数、匹配计数与离散结构"
   ],
   "files": [
     {
@@ -1697,6 +1711,1644 @@
       "status": "draft",
       "reasons": [
         "当前正文与属性齐全"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/记号、阶乘与二项式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/多项式系数与多重集合.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Vandermonde 卷积与超几何和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/前缀和、交错和与二项式尾和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/二项式反演、集合反演、容斥.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/差分、Newton 插值与离散积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/第一类与第二类 Stirling 数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Bell 数、满射数与 Dobinski 公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Catalan、反射原理、Ballot.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/错排、固定点与排列限制.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Eulerian 数、下降段与 Worpitzky 恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/整数分拆与五边形数定理.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/q-组合数（Gaussian binomial）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/车多项式与禁位排列.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Hall、König、Gale–Ryser 与 Landau.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Dilworth、Mirsky 与 DAG 路径覆盖.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/偏序 Möbius、SOS 与子集卷积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/等式收缩与图上容斥.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/多重二项式卷积与 Vandermonde 的移位形式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/排列的循环型与无标号／有标号集合计数速查.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/次序统计量的最值容斥推广.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/Bell 数的 Touchard 同余.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/限制单个部分重数的整数分拆.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/组合恒等式、反演与计数/球盒模型：按球、盒是否可区分分类.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/OGF、EGF、卷积和序列构造.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/基础级数与系数速查.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/变量标记、移位、求导与积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/有界选择、背包、选与不选.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/置换循环类型、共轭类与元素阶.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/Burnside、轨道稳定子与 Pólya.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/项链、手链与最小周期.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/形式幂级数求导、逆、对数、指数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/复合逆、Lagrange–Bürmann 反演.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/形式留数与变量代换.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/Abel 恒等式与 Lambert W.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/Taylor 平移与阶乘卷积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/多项式除法、插值、取模与 Bostan–Mori.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/常系数递推与有理 OGF.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/FWT 与三类按位卷积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/NTT、离散傅里叶与卷积边界.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/在线卷积与微分方程系数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/复数单位根、分圆多项式及 Möbius 恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/线性递推的特征根表达及两个生成函数恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/有限群的元素阶与 Lagrange、Cauchy 定理.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/Pólya：循环指标闭式与指定颜色用量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/生成函数、多项式与置换/群、子群、陪集与二面体群的标准模型.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/Cayley、Prüfer 编码与指定度数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/指定根集的有根森林与完全二分图.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/函数图与基环树.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/标号森林／树的指数生成函数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/无标号树、无序孩子与对称.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/矩阵树定理：无向、多重、带权.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/有向矩阵树与矩阵森林定理.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/行列式低秩更新与增删边计数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/图的标号连通计数及块分解.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/色多项式、删除收缩与 chromatic symmetric function.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/有向 Euler 回路与 BEST 定理.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/Prüfer 与图的握手引理、环空间.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/平面图、欧拉公式及图计数边界.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/Erdos–Gallai 图形序列判定.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/树、森林、函数图与图论计数/生成树、割和有效电阻.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/矩阵与线性方程组的秩.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/行列式、逆矩阵与 Cramer 法则.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/Vandermonde、Cauchy、循环矩阵.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/矩阵更新、Sherman–Morrison–Woodbury.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/特征多项式与 Cayley–Hamilton.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/迹、特征值、Newton 恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/线性递推、Kitamasa 与矩阵幂.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/Berlekamp–Massey.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/Lagrange、Newton 差商与重节点.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/有限差分、幂基转换.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/GF(2) 线性基、异或和空间.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/线性代数的随机计数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/线性代数、插值与线性递推/Perron、谱图论、矩阵幂模型.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/整除、gcd 与 Bézout.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/素因子分解、约数与狄利克雷基本函数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Euler 函数与 Carmichael 函数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Möbius 函数与 Dirichlet 卷积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/gcd、lcm 求和与计数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Jordan 函数、Liouville 函数与 Ramanujan 和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/乘法逆元、线性同余和扩展 CRT.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Fermat、Wilson、Lucas 与 Kummer.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/原根、元素阶与循环群.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/阶、离散对数与 BSGS.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/二次剩余、Legendre 符号与二次互反律.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/LTE（提升指数引理）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/整除分块、调和分块与 floor_sum.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Dirichlet 逆与算术函数求和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Min_25 筛基础拆分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/模 p^k 阶乘与组合数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/幂和、Dirichlet 生成函数与 zeta.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/平方自由数、完全幂与容斥.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/费马两平方定理与平方和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/其他常用模运算注意点.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/特殊的 Dirichlet 卷积与约数恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/／gcd(a^m-1,a^n-1)、本原分解与素数幂积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/Jordan 函数与带权 gcd 求和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/约化剩余系的和与指数阶限制.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/数论、算术函数、同余和筛法/四平方计数公式与三个平方判定.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/概率基本公式与条件概率.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/指示变量、线性期望与方差.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/全期望、全方差与条件期望.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/非负整数尾和及高阶矩.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/概率生成函数、矩与累积量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/独立随机变量和的高阶矩.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/常见离散分布.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/常见连续分布.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/收集券：等概率与不等概率.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/收集券：未出现、已出现与加权类别.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/占位模型与生日悖论.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/最大值、最小值与顺序统计量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/不放回选取整数的顺序统计量与间隔.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/指数分布竞争与指数样本顺序统计量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/Markov、Chebyshev 与 Chernoff.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/吸收马尔可夫链：期望、二阶矩与方差.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/首步分析、更新奖励与 Wald.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/赌徒破产：击中概率与期望时长.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/随机排列：环、逆序对、固定点.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/随机排列的位置、相邻关系、记录与升降.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/固定大小随机子集、加权求和与随机配对.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/随机 Cartesian 树、随机 BST 与 Quicksort.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/随机游走、图上 hitting time 与 commute time.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/图、字符串与染色中的随机指示变量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/矩与状态增广：不用维护全分布.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/独立失败与成功的期望重试次数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/概率方法、存在性与误差放大.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/Schwartz–Zippel 与 Freivalds 随机代数验证.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/概率、期望、随机过程与常见分布/中心极限定理、分布极限与近似.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/向量基本运算与有向面积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/直线交点、距离与投影.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/线段相交与有向判断.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/三角形：正弦、余弦、面积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/三角形中心与特殊性质.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/三角形坐标与面积坐标.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/多边形面积、周长与重心.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/多边形 Pick 定理和边界格点.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/四边形、Brahmagupta、Ptolemy、Euler.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/正多边形.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/圆、扇形、弓形与弦.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/圆与直线、两圆位置关系.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/两圆公共面积、圆弧与外切线.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/圆形反演.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/凸包、支撑函数和 Minkowski 和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/旋转卡壳、最远点对与宽度.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/半平面交与凸性判定.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/Cauchy 周长公式、等周与等直径.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/Steiner 公式与平面膨胀.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/平面几何、解析几何与凸性/曼哈顿与切比雪夫距离变换.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/三维向量、叉积与混合积.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/直线、平面、垂足与交点.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/点线距离、异面直线距离与空间角.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/球、球冠、球带、球缺.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/圆柱、圆锥、圆台.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/棱柱、棱锥、棱台.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/四面体中心、正四面体与一般三棱锥.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/两球相交、球面测地距离.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/球面、经纬度、Haversine.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/球面多边形与球面三角形.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/Euler 多面体公式与角缺损.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/三维凸包与体积求和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/高维球、超球面与径向积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/三维旋转：Rodrigues 公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/立体角、球面三角形和球面过量.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/圆弧、扇形和弓形的形心（不可混用）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/四面体内心、内切球与 Cayley–Menger 行列式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/立体几何、空间向量与球面公式/空间两直线最近点和参数解.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/Fibonacci、Lucas 与矩阵恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/Harmonic 数与调和求和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/Bernoulli 数、多项式与幂和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/Motzkin、Schröder 与 Narayana.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/树形偏序的 hook-length 公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/标准 Young 表的 hook-length 公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/指定下降位置的排列计数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/Abel 二项式恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/平面有序树、满二叉树和孩子限制.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/标号森林与组件参数标记.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/有界整数向量的矩与交叉矩.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/其他常用计数公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/特殊数列、树形偏序与高级组合模型/正规幻方（Magic Square）的行列和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/有限正常规则无偏博弈与 Sprague–Grundy 定理.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/Nim、Bash 与减法游戏.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/反常 Nim（取走最后一颗者输）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/Wythoff 博弈.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/树形 Green Hackenbush.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/有界公平游戏的 mex 上界.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/无限棋盘骑士距离.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/避免连续 k 个相同字符的二元串.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/格雷码与二进制组合数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/博弈与代数的性质边界.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/Moore's Nim：每步允许改变多堆（正常规则）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/阶梯 Nim 与 Fibonacci Nim.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/博弈论、棋盘距离与离散状态/无向顶点地理游戏（Undirected Vertex Geography）.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/gcd 的基本恒等式与整除条件.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/等余数与差分 gcd.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/固定端点的连续区间 gcd 短状态链.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/按倍数计数 gcd 正好等于 d.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/mex 定义、阈值与可达性.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/区间 mex 的阈值计数与尾和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/离线区间 mex 的 last 数组.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/mex 恰好为 k 的最少替换次数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/mex 连续分段与频次必要条件.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/按位 AND、OR、xor、lcm 的状态差异.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/gcd、mex、位运算和区间聚合/区间统计的“定义变形”速查.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/等差、等比与加权等比和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/拆项、望远镜与 Abel 求和.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/二项式与多项式求和变换.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/常用导数与积分表.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/三角恒等式与反三角.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/泰勒展开与常用极限.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/常用定积分与 Beta–Gamma 函数.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/辛普森公式与积分近似.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/AM–GM、Cauchy–Schwarz、Hölder 与 Jensen.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/常见界与增长率.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/常见分式、平方根和二次式不定积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/三角函数积分、降幂和递推.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/Beta–Gamma、正态积分与常用定积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/常用幂函数积分和有理函数递推.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/万能半角代换与含三角函数的有理积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/常用求和、初等函数、分析与不等式/指数函数与三角函数乘积的积分.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/行列式、积和式与完全匹配.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/Hafnian 与一般图完美匹配.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/Pfaffian 与 Tutte 矩阵.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/Tutte–Berge 最大匹配公式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/匹配、多项式及路径的矩阵表示.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/矩阵树概率与有效电阻.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/多项式的根、导数与重根.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/结式（resultant）与判别式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/多元二项式与矩阵幂的块分解.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/随机矩阵、有限域与子空间.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/拟阵、生成树与基数性质.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/奇偶、对称与分组的基本指示恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/划分函数与子集 Zeta／Möbius 的加法关系.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/三次方程 Cardano 公式与四次方程 Ferrari 分解.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
+      ]
+    },
+    {
+      "path": "Math/高阶代数、匹配计数与离散结构/基本对称多项式、完全对称多项式与牛顿恒等式.md",
+      "status": "draft",
+      "reasons": [
+        "Math 数学工具小节"
       ]
     }
   ]

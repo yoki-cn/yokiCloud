@@ -1,3 +1,4 @@
+import { decodeHTML } from "entities";
 import fs from "node:fs";
 import assert from "node:assert/strict";
 import remarkObsidian from "./remark-obsidian.mjs";
@@ -39,8 +40,8 @@ function checkLinks(dir) {
     const full = `${dir}/${item.name}`;
     if (item.isDirectory()) checkLinks(full);
     else if (item.name.endsWith('.html')) {
-      for (const match of fs.readFileSync(full, 'utf8').matchAll(/href="(\/[^"?#]*)/g)) {
-        const raw = decodeURIComponent(match[1]);
+      for (const match of fs.readFileSync(full, 'utf8').matchAll(/href="(\/[^"]*)/g)) {
+        const raw = decodeURIComponent(decodeHTML(match[1]).split(/[?#]/)[0]);
         const prefix = withBasePath('/', base).replace(/\/$/, '');
         const url = prefix && raw.startsWith(prefix + '/') ? raw.slice(prefix.length) : raw;
         if (!url.startsWith('/algorithms/')) continue;
