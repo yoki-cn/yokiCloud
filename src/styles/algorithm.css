@@ -640,3 +640,54 @@ summary.obsidian-callout-title {
 .algorithm-download-meta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; color: var(--yc-cyan); }
 @media (max-width: 1000px) { .algorithm-download-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .algorithm-download-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Algorithm search: concise match evidence and incremental browsing. */
+.algorithm-search-hint {
+  margin: 2px 0 0;
+  color: var(--yc-dim);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.algorithm-search-hint kbd {
+  border: 1px solid var(--yc-line);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--yc-muted);
+  font: inherit;
+}
+.algorithm-search-summary {
+  margin: 0 0 14px;
+  color: var(--yc-muted);
+  font-size: 12px;
+}
+.algorithm-match-reason {
+  margin: 10px 0 0;
+  color: var(--yc-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.algorithm-match-reason code {
+  color: var(--yc-text);
+  background: var(--yc-surface-inner);
+  padding: 2px 5px;
+  border: 1px solid var(--yc-line);
+  border-radius: 4px;
+}
+.algorithm-more-results {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px 16px;
+  border: 1px solid var(--yc-line-strong);
+  border-radius: var(--yc-radius-sm);
+  background: var(--yc-surface-inner);
+  color: var(--yc-text);
+  font-size: 13px;
+  cursor: pointer;
+}
+.algorithm-more-results:hover,
+.algorithm-more-results:focus-visible {
+  background: var(--yc-cyan-soft);
+  border-color: var(--yc-cyan);
+}
