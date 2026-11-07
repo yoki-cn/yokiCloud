@@ -1,3 +1,4 @@
+import { matchAlgorithmBoard, type AlgorithmSearchMatch } from "../utils/algorithmSearch";
 import { algorithmDownloads } from "../data/algorithmDownloads";
 import { sitePath } from "../utils/sitePath";
 import { ArrowRight, BookOpen, Download, FolderTree, Search, X } from "lucide-react";
@@ -20,6 +21,9 @@ export type AlgorithmBoardSummary = {
   order: number;
   href: string;
   markdownUrl: string;
+  headings: string[];
+  symbols: string[];
+  aliases: string[];
 };
 
 export type AlgorithmArchiveProps = {
@@ -48,6 +52,7 @@ export default function AlgorithmArchive({
   const [query, updateQuery] = useState("");
   const [activeSection, updateSection] = useState("ALL");
   const [activeStatus, updateStatus] = useState<"ALL" | AlgorithmStatus>("ALL");
+  const [resultLimit, setResultLimit] = useState(36);
   function saveFilter(key: string, value: string) {
     const url = new URL(window.location.href);
     if (key === "q") url.searchParams.delete("tag");
@@ -56,9 +61,9 @@ export default function AlgorithmArchive({
     // Preserve navigation provenance and update this entry, not the history stack.
     window.history.replaceState(window.history.state, "", url);
   }
-  function setQuery(value: string) { updateQuery(value); saveFilter("q", value); }
-  function setActiveSection(value: string) { updateSection(value); saveFilter("section", value); }
-  function setActiveStatus(value: "ALL" | AlgorithmStatus) { updateStatus(value); saveFilter("status", value); }
+  function setQuery(value: string) { updateQuery(value); setResultLimit(36); saveFilter("q", value); }
+  function setActiveSection(value: string) { updateSection(value); setResultLimit(36); saveFilter("section", value); }
+  function setActiveStatus(value: "ALL" | AlgorithmStatus) { updateStatus(value); setResultLimit(36); saveFilter("status", value); }
   const [bookmarksOpen, setBookmarksOpen] = useLocalStorageState<boolean>(
     "ark.portal.bookmarks.sidebarOpen.v1",
     () => false
@@ -93,17 +98,36 @@ export default function AlgorithmArchive({
     [boards]
   );
 
-  const filteredBoards = useMemo(() => {
-    const keyword = query.trim().toLocaleLowerCase();
-    return boards.filter((board) => {
-      if (activeSection !== "ALL" && !board.slug.startsWith(activeSection + "/")) return false;
-      if (activeStatus !== "ALL" && board.status !== activeStatus) return false;
-      if (!keyword) return true;
-      return [board.title, board.section, ...board.tags]
-        .filter(Boolean)
-        .some((value) => String(value).toLocaleLowerCase().includes(keyword));
-    });
-  }, [activeSection, activeStatus, boards, query]);
+  const queryActive = query.trim().length > 0;
+  const searchResults = useMemo(() => {
+    const ranked: Array<{ board: AlgorithmBoardSummary; match: AlgorithmSearchMatch | null }> = [];
+    for (const board of boards) {
+      if (activeSection !== "ALL" && !board.slug.startsWith(activeSection + "/")) continue;
+      if (activeStatus !== "ALL" && board.status !== activeStatus) continue;
+      const match = queryActive ? matchAlgorithmBoard(board, query) : null;
+      if (queryActive && !match) continue;
+      ranked.push({ board, match });
+    }
+    if (queryActive) ranked.sort((a, b) => (b.match?.score ?? 0) - (a.match?.score ?? 0) || a.board.order - b.board.order);
+    return ranked;
+  }, [activeSection, activeStatus, boards, query, queryActive]);
+  const filteredBoards = searchResults.slice(0, resultLimit);
+  const resultCount = searchResults.length;
+  useEffect(() => {
+    const openSearch = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      const typing = target?.matches("input, textarea, select, [contenteditable='true']");
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        document.getElementById("algorithm-search-input")?.focus();
+      } else if (event.key === "/" && !typing && !event.altKey && !event.ctrlKey && !event.metaKey) {
+        event.preventDefault();
+        document.getElementById("algorithm-search-input")?.focus();
+      }
+    };
+    document.addEventListener("keydown", openSearch);
+    return () => document.removeEventListener("keydown", openSearch);
+  }, []);
 
   const verifiedCount = boards.filter((board) => board.status === "verified" || board.status === "usable").length;
   return (
@@ -173,18 +197,19 @@ export default function AlgorithmArchive({
           label="BOARD ROUTER / 板子路由"
           sublabel="SEARCH & FILTER"
           icon={Search}
-          right={<Pill>{filteredBoards.length} MATCHED</Pill>}
+          right={<Pill>{resultCount} MATCHED</Pill>}
         >
           <div className="algorithm-toolbar">
             <label className="algorithm-search-wrap">
               <Search className="algorithm-search-icon" aria-hidden="true" />
               <span className="sr-only">搜索算法板子</span>
               <input
+                id="algorithm-search-input"
                 className="algorithm-search"
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="搜索标题、知识域或标签…"
+                placeholder="搜索算法、函数名、别名、章节…  /"
               />
               {query ? (
                 <button type="button" className="algorithm-search-clear" onClick={() => setQuery("")} aria-label="清除搜索">
@@ -220,6 +245,7 @@ export default function AlgorithmArchive({
                 })}
               </div>
             </div>
+            <p className="algorithm-search-hint">支持函数名、算法别名和多关键词搜索（空格分隔）；按 <kbd>/</kbd> 或 <kbd>Ctrl K</kbd> 快速聚焦。</p>
           </div>
         </Panel>
       </section>
@@ -248,9 +274,10 @@ export default function AlgorithmArchive({
           </aside>
 
           <div>
+            {queryActive ? <div className="algorithm-search-summary" role="status">找到 {resultCount} 个匹配板子，按相关度排序。{activeSection !== "ALL" || activeStatus !== "ALL" ? " 当前筛选条件仍然生效。" : ""}</div> : null}
             {filteredBoards.length ? (
               <div className="algorithm-board-grid">
-                {filteredBoards.map((board) => (
+                {filteredBoards.map(({ board, match }) => (
                   <article key={board.slug} className="algorithm-board-card yc-cut-corner">
                     <div className="flex items-start justify-between gap-3">
                       <div className="yc-hud-text text-[9px] text-[var(--yc-dim)]">
@@ -260,6 +287,7 @@ export default function AlgorithmArchive({
                     </div>
 
                     <h2 className="algorithm-board-card-title heading-main"><a href={sitePath(board.href)} className="algorithm-card-link">{board.title}</a></h2>
+                    {match ? <p className="algorithm-match-reason">命中{({ title: "标题", symbol: "函数 / 类型", alias: "别名", heading: "小节", tag: "标签", section: "知识域" } as const)[match.field]}：<code>{match.text}</code></p> : null}
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {board.tags.slice(0, 3).map((tag) => <Pill key={tag}>{tag}</Pill>)}
                     </div>
@@ -286,6 +314,7 @@ export default function AlgorithmArchive({
                   : "没有匹配的板子。清除搜索或切回全部状态后再试。"}</p>
               </div>
             )}
+            {resultCount > resultLimit ? <button type="button" className="algorithm-more-results" onClick={() => setResultLimit((n) => n + 36)}>加载更多 · 还有 {resultCount - resultLimit} 篇</button> : null}
           </div>
         </div>
       </section>
